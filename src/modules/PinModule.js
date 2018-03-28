@@ -29,7 +29,7 @@ class PinModule extends Module {
           name: PinModule.getMessageAuthorName(message),
           icon_url: message.author.avatarURL
         },
-        title: '#' + channel.name,
+        title: '#' + message.channel.name,
         description: message.content,
         image: {
           url: PinModule.getMessageImageURL(message)
