@@ -11,30 +11,34 @@ class PinModule extends Module {
       const message = messages.first()
       if (!message) return
 
-      const canPostToBoard = pinBoard.permissionsFor(pinBoard.guild.me).has([
-        Discord.Permissions.FLAGS.SEND_MESSAGES,
-        Discord.Permissions.FLAGS.EMBED_LINKS
-      ])
-      if (!canPostToBoard) return
-
-      pinBoard.send('', {
-        embed: {
-          color: 0xFF00FF, // god-awful pink
-          author: {
-            name: PinModule.getMessageAuthorName(message),
-            icon_url: message.author.avatarURL
-          },
-          title: '#' + channel.name,
-          description: message.content,
-          image: {
-            url: PinModule.getMessageImageURL(message)
-          },
-          timestamp: message.createdAt
-        }
-      })
-
-      PinModule.unpinMessage(message)
+      PinModule.pinMessageToBoard(pinBoard, message)
     })
+  }
+
+  static pinMessageToBoard (pinBoard, message) {
+    const canPostToBoard = pinBoard.permissionsFor(pinBoard.guild.me).has([
+      Discord.Permissions.FLAGS.SEND_MESSAGES,
+      Discord.Permissions.FLAGS.EMBED_LINKS
+    ])
+    if (!canPostToBoard) return
+
+    pinBoard.send('', {
+      embed: {
+        color: 0xFF00FF, // god-awful pink
+        author: {
+          name: PinModule.getMessageAuthorName(message),
+          icon_url: message.author.avatarURL
+        },
+        title: '#' + channel.name,
+        description: message.content,
+        image: {
+          url: PinModule.getMessageImageURL(message)
+        },
+        timestamp: message.createdAt
+      }
+    })
+
+    PinModule.unpinMessage(message)
   }
 
   static getPinBoard (guild) {
