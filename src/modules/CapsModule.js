@@ -4,7 +4,7 @@ class CapsModule extends Module {
   onMessage (message) {
     if (message.author.bot || message.channel.type !== 'text') return
 
-    if (message.content === message.content.toUpperCase()) {
+    if (message.content.trim().length >= 3 && message.content === message.content.toUpperCase()) {
       message.channel.send('CAPS LOCK IS CRUISE CONTROL FOR COOL')
     }
   }
