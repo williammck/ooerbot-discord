@@ -1,17 +1,19 @@
 const ActivityModule = require('./ActivityModule')
-const PinModule = require('./PinModule')
+const AyyModule = require('./AyyModule')
+const CapsModule = require('./CapsModule')
 const DadModule = require('./DadModule')
 const MentionModule = require('./MentionModule')
-const AyyModule = require('./AyyModule')
+const PinModule = require('./PinModule')
 const ZalgoModule = require('./ZalgoModule')
 
 exports.initialize = function initialize (client) {
   const modules = [
     ActivityModule,
-    //PinModule,
+    AyyModule,
+    CapsModule,
     DadModule,
     MentionModule,
-    AyyModule,
+    //PinModule,
     ZalgoModule
   ]
 
