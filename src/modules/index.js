@@ -1,6 +1,5 @@
 const ActivityModule = require('./ActivityModule')
 const AyyModule = require('./AyyModule')
-const CapsModule = require('./CapsModule')
 const DadModule = require('./DadModule')
 const MentionModule = require('./MentionModule')
 const PinModule = require('./PinModule')
@@ -10,7 +9,6 @@ exports.initialize = function initialize (client) {
   const modules = [
     ActivityModule,
     AyyModule,
-    CapsModule,
     DadModule,
     MentionModule,
     //PinModule,
