@@ -10,7 +10,7 @@ exports.initialize = function initialize (client) {
     ActivityModule,
     AyyModule,
     DadModule,
-    MentionModule,
+    //MentionModule,
     //PinModule,
     ZalgoModule
   ]
